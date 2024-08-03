@@ -1,0 +1,284 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+a {
+  width: 100%; /* Ajusta el ancho del enlace para que ocupe el 100% del contenedor */
+  height: auto;
+  display: inline-block;
+  text-decoration: none;
+}
+
+h1 {
+    font-family: "Times New Roman";
+
+}
+
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #0c192c 50%, #2a2f45 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: .5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: .25em;
+  box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 5vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; /* Ajusta el ancho del contenedor */
+  max-width: 800px; /* Establece un ancho máximo para grandes pantallas */
+  overflow: auto; /* Maneja el desbordamiento del contenido */
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+/* Botón */
+.second-button {
+  width: 100%;
+  max-width: 220px;
+  height: 50px;
+  transition: all 0.2s ease-in;
+  border: 3px #0c192c solid; /* Cambiado al color base */
+  color: #0c192c; /* Cambiado al color base */
+  position: relative;
+  overflow: hidden;
+  display: inline-block; /* Asegura que estén uno al lado del otro */
+  margin: 10px 0; /* Espacio entre los botones */
+  background-color: #ffffff; /* Fondo blanco para contraste */
+}
+
+.second-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  z-index: -1;
+  background-color: #0c192c; /* Cambiado al color base */
+  transform: translateY(-200px) translateX(-500px);
+  transition: all 0.4s ease-in;
+}
+
+.second-button:hover::before {
+  transform: translateX(-140px) translateY(-230px);
+  background-color: #0088f0; /* Amarillo Mostaza como acento */
+  box-shadow: 0px 5px 25px -5px #0088f0; /* Sombra con el color de acento */
+}
+
+.second-button:hover {
+  color: #0088f0; /* Texto cambia al color de acento */
+  border: 3px #0088f0 solid; /* Borde cambia al color de acento */
+  box-shadow: 0px 5px 25px -5px #0088f0; /* Sombra con el color de acento */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .content {
+    padding: 8vmin; /* Aumenta el padding en pantallas más pequeñas */
+    width: 95%; /* Ajusta el ancho del contenedor */
+  }
+
+  .second-button {
+    width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+    margin: 10px 0; /* Espacio entre los botones */
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10vmin; /* Aumenta aún más el padding para pantallas muy pequeñas */
+    width: 100%; /* Ajusta el ancho del contenedor para pantallas muy pequeñas */
+  }
+
+  .second-button {
+    font-size: 14px; /* Reduce el tamaño del texto en botones en pantallas muy pequeñas */
+  }
+}
+
+/* Contenedor de la transición */
+.page-transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2a2f45; /* Color de fondo de la transición */
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estado visible de la transición */
+.page-transition.show {
+  transform: translateX(0);
+}
+
+/* Página actual */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilos para los contactos */
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Asegura que el texto esté centrado verticalmente */
+}
+
+.contact-info h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #0c192c;
+}
+
+.contact-info p {
+  margin: 5px 0 0;
+  font-size: 1em;
+  color: #2a2f45;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #0088f0;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #0c192c;
+}
+
+/* Estilo adicional para asegurar la alineación correcta */
+.contact-info p a {
+  display: inline; /* Asegura que el enlace no se estire */
+}
+
+/* Ajustes para asegurar que las imágenes y los textos estén bien alineados en móviles */
+@media (max-width: 768px) {
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-icon {
+    margin-bottom: 10px; /* Añadir espacio debajo del icono en pantallas pequeñas */
+  }
+
+  .contact-info {
+    align-items: center; /* Centra los elementos en pantallas pequeñas */
+  }
+}
+
+.carousel {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.project-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-link p {
+  margin: 5px 0 0;
+  font-size: 1em;
+  color: #2a2f45;
+}
+
+.project-link a {
+  text-decoration: none;
+  color: #0088f0;
+  transition: color 0.3s ease;
+}
+
+.project-link a:hover {
+  color: #0c192c;
+}
+
+.skills-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
